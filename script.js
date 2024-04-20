@@ -1,13 +1,25 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
-// Click Enter event
-inputBox.addEventListener("keyup", function(event){
-  if (event.key == "Enter") {
-    addTask();
+inputBox.addEventListener("keyup", function(event) {
+  if (event.key === "Enter") {
+    
+    // Validating text input
+    let textValidator = this.validator.message('text', this.state.text, 'required|text');
+    
+    let inputClassName = textValidator ? 'border-red' : 'border-default';
+
+    // Rendering the input box with appropriate class based on validation
+    inputBox.innerHTML = `
+      <div>
+        <input class="${inputClassName}" />
+      </div>
+    `;
+
+    addTask(this.value);
     this.value = "";
   }
-})
+});
 
 // Add task
 function addTask() {
