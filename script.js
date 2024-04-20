@@ -14,7 +14,10 @@ function addTask() {
   if(inputBox.value === ''){
     alert("Write something");
     inputBox.classList.add("border-red");
-    
+    inputBox.addEventListener('focus', function() {
+      // Change the border color to transparent when the input box is active
+      this.style.borderColor = 'transparent';
+  });
   }
   else{
     let li = document.createElement("li");
