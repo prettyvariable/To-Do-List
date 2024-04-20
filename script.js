@@ -14,6 +14,7 @@ function addTask() {
   if(inputBox.value === ''){
     alert("Write something");
     inputBox.classList.add("border-red");
+    
   }
   else{
     let li = document.createElement("li");
