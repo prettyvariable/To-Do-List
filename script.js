@@ -1,24 +1,7 @@
-// script.js
-
 window.onload = function() {
   const inputBox = document.getElementById("input-box");
   const listContainer = document.getElementById("list-container");
-
-  inputBox.addEventListener("keyup", function(event) {
-    // Check if the input is empty
-    if (inputBox.value.trim() === '') {
-      // Add the 'border-red' class to the input
-      inputBox.classList.add("border-red");
-    } else {
-      // Remove the 'border-red' class from the input
-      inputBox.classList.remove("border-red");
-    }
-
-    // If Enter key is pressed, add the task
-    if (event.key === "Enter") {
-      addTask();
-    }
-  });
+  const addButton = document.querySelector("button");
 
   // Function to add task
   function addTask() {
@@ -44,6 +27,28 @@ window.onload = function() {
     // Save the updated list to local storage
     saveData();
   }
+
+  // Event listener for button click
+  addButton.addEventListener("click", function() {
+    addTask();
+  });
+
+  // Event listener for input box keyup
+  inputBox.addEventListener("keyup", function(event) {
+    // Check if the input is empty
+    if (inputBox.value.trim() === '') {
+      // Add the 'border-red' class to the input
+      inputBox.classList.add("border-red");
+    } else {
+      // Remove the 'border-red' class from the input
+      inputBox.classList.remove("border-red");
+    }
+
+    // If Enter key is pressed, add the task
+    if (event.key === "Enter") {
+      addTask();
+    }
+  });
 
   // Load saved tasks from local storage
   function showTask() {
