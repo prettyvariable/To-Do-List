@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
   const inputBox = document.getElementById("input-box");
   const listContainer = document.getElementById("list-container");
   const addButton = document.querySelector("button");
@@ -6,7 +6,7 @@ window.onload = function() {
   // Function to add task
   function addTask() {
     // Check if the input is empty
-    if (inputBox.value === '') {
+    if (inputBox.value === "") {
       alert("Write something");
       // Add the 'border-red' class to the input
       inputBox.classList.add("border-red");
@@ -27,16 +27,29 @@ window.onload = function() {
     // Save the updated list to local storage
     saveData();
   }
-
+  // checked task and remove task
+  listContainer.addEventListener(
+    "click",
+    function (e) {
+      if (e.target.tagName === "LI") {
+        e.target.classList.toggle("checked");
+        saveData();
+      } else if (e.target.tagName === "SPAN") {
+        e.target.parentElement.remove();
+        saveData();
+      }
+    },
+    false
+  );
   // Event listener for button click
-  addButton.addEventListener("click", function() {
+  addButton.addEventListener("click", function () {
     addTask();
   });
 
   // Event listener for input box keyup
-  inputBox.addEventListener("keyup", function(event) {
+  inputBox.addEventListener("keyup", function (event) {
     // Check if the input is empty
-    if (inputBox.value.trim() === '') {
+    if (inputBox.value.trim() === "") {
       // Add the 'border-red' class to the input
       inputBox.classList.add("border-red");
     } else {
@@ -63,5 +76,3 @@ window.onload = function() {
   // Call the function to load saved tasks when the page loads
   showTask();
 };
-
-

@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles.css" />
 
-<head>
-  <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=0.95" />
+  </head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=0.95">
-</head>
-
-<body>
-
-
-  <div class="container">
-    <div class="to-do">
-      <h2>To-Do List <img src="./pics/todolist.gif" alt="todolist"></h2>
-      <div class="input">
-        <input type="text" id="input-box" placeholder="Feed my cat">
-        <button onclick="addTask()">Add</button>
+  <body>
+    <div class="container">
+      <div class="to-do">
+        <h2>To-Do List <img src="./pics/todolist.gif" alt="todolist" /></h2>
+        <div class="input">
+          <input type="text" id="input-box" placeholder="Feed my cat" />
+          <button onclick="addTask()">Add</button>
+        </div>
+        <ul id="list-container"></ul>
       </div>
-      <ul id="list-container">
-
-      </ul>
     </div>
-  </div>
-  <script src="script.js"></script>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
