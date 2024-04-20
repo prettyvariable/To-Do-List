@@ -56,10 +56,15 @@ body {
 .input input {
   flex: 1;
   outline: none;
-  border: none;
   background-color: transparent;
   font-size: 20px;
   padding: 10px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+.input input.border-red {
+  /* Add this to change the border color to red */
+  border-color: red;
 }
 
 .input button {

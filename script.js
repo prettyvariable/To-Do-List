@@ -1,56 +1,62 @@
+// script.js
+
 window.onload = function() {
   const inputBox = document.getElementById("input-box");
   const listContainer = document.getElementById("list-container");
 
   inputBox.addEventListener("keyup", function(event) {
+    // Check if the input is empty
+    if (inputBox.value.trim() === '') {
+      // Add the 'border-red' class to the input
+      inputBox.classList.add("border-red");
+    } else {
+      // Remove the 'border-red' class from the input
+      inputBox.classList.remove("border-red");
+    }
+
+    // If Enter key is pressed, add the task
     if (event.key === "Enter") {
       addTask();
-    } else {
-      // Remove the red border class if input is not empty
-      if (inputBox.value.trim() !== '') {
-        inputBox.classList.remove("border-red");
-      }
     }
   });
 
-  // Add task
+  // Function to add task
   function addTask() {
+    // Check if the input is empty
     if (inputBox.value === '') {
       alert("Write something");
-      // Add red border class if input is empty
+      // Add the 'border-red' class to the input
       inputBox.classList.add("border-red");
-    } else {
-      let li = document.createElement("li");
-      li.innerHTML = inputBox.value;
-      listContainer.appendChild(li);
-      let span = document.createElement("span");
-      span.innerHTML = "\u00d7";
-      li.appendChild(span);
+      return; // Exit the function early if input is empty
     }
+
+    // If input is not empty, proceed to add the task
+    let li = document.createElement("li");
+    li.innerHTML = inputBox.value;
+    listContainer.appendChild(li);
+    let span = document.createElement("span");
+    span.innerHTML = "\u00d7";
+    li.appendChild(span);
+
+    // Clear the input box
     inputBox.value = "";
+
+    // Save the updated list to local storage
     saveData();
   }
 
-  // checked task and remove task
-  listContainer.addEventListener("click", function(e) {
-    if (e.target.tagName === "LI") {
-      e.target.classList.toggle("checked");
-      saveData();
-    } else if (e.target.tagName === "SPAN") {
-      e.target.parentElement.remove();
-      saveData();
-    }
-  }, false);
-
-  // Save local data
-  function saveData() {
-    localStorage.setItem("data", listContainer.innerHTML);
-  }
-
+  // Load saved tasks from local storage
   function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
   }
 
+  // Save tasks to local storage
+  function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
+  }
+
+  // Call the function to load saved tasks when the page loads
   showTask();
 };
+
 
