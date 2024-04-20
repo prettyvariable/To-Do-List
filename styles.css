@@ -18,7 +18,13 @@
     background-size: cover;
     padding: 40px;
   }
+  input:invalid:required {
+    background-image: linear-gradient(to right, pink, lightgreen);
+  }
   
+  input:valid {
+    border: 2px solid black;
+  }
   .to-do{
     width: 100%;
     max-width: 540px;
