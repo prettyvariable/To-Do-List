@@ -4,8 +4,8 @@ const listContainer = document.getElementById("list-container");
 // Click Enter event
 inputBox.addEventListener("keyup", function(event){
   if (event.key == "Enter") {
-    addTask(this.value)
-    this.value = ""
+    addTask();
+    this.value = "";
   }
 })
 
@@ -22,7 +22,6 @@ function addTask() {
     span.innerHTML = "\u00d7";
     li.appendChild(span);
   }
-  inputBox.value = "";
   saveData();
 }
 
