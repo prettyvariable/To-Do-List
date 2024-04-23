@@ -136,3 +136,49 @@ ul li span {
 ul li span:hover {
   background-color: #5a5c6c;
 }
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .to-do {
+    max-width: 400px;
+    padding: 15px;
+    margin-top: 15px;
+  }
+
+  .to-do h2 {
+    font-size: 20px;
+  }
+
+  .input {
+    padding: 8px;
+  }
+
+  .input input {
+    font-size: 14px;
+  }
+
+  .input button {
+    
+    font-size: 14px;
+  }
+
+  ul li {
+    font-size: 14px;
+    padding: 6px 6px 6px 15px;
+  }
+
+  ul li::before {
+    margin-top: -4px;
+  }
+
+  ul li span {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+  }
+}
